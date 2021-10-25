@@ -1,5 +1,7 @@
 package com.unab.apijava41.controllers;
 
+
+
 import com.unab.apijava41.models.peticiones.UsuarioRegistrarRequestModel;
 import com.unab.apijava41.models.respuestas.UsuarioRestModel;
 import com.unab.apijava41.services.IUsuarioService;
@@ -42,9 +44,9 @@ public class UsuarioControllers {
     }
 
     @PostMapping
-    public UsuarioRestModel crearUsuario(@RequestBody UsuarioRegistrarRequestModel UsuarioRegistrarRequestModel) {
+    public UsuarioRestModel crearUsuario(@RequestBody UsuarioRegistrarRequestModel usuarioRegistroRequestModel) {
 
-        UsuarioCrearDto usuarioCrearDto = modelMapper.map(UsuarioRegistrarRequestModel, UsuarioCrearDto.class);
+        UsuarioCrearDto usuarioCrearDto = modelMapper.map(usuarioRegistroRequestModel, UsuarioCrearDto.class);
 
         UsuarioDto usuarioDto = iUsuarioService.crearUsuario(usuarioCrearDto);
 
