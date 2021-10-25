@@ -1,7 +1,6 @@
 package com.unab.apijava41.controllers;
 
 
-
 import com.unab.apijava41.models.peticiones.UsuarioRegistrarRequestModel;
 import com.unab.apijava41.models.respuestas.UsuarioRestModel;
 import com.unab.apijava41.services.IUsuarioService;
@@ -13,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +44,7 @@ public class UsuarioControllers {
     }
 
     @PostMapping
-    public UsuarioRestModel crearUsuario(@RequestBody UsuarioRegistrarRequestModel usuarioRegistroRequestModel) {
+    public UsuarioRestModel crearUsuario(@RequestBody @Validated UsuarioRegistrarRequestModel usuarioRegistroRequestModel) {
 
         UsuarioCrearDto usuarioCrearDto = modelMapper.map(usuarioRegistroRequestModel, UsuarioCrearDto.class);
 
